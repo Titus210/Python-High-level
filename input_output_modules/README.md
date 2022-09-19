@@ -1,13 +1,13 @@
 ## Python Input and Output
 ***
-### **python input**
+ **python input**
 Python has inbuild method thatis used to get input/data from the user <br/> We usw `input([prompt])`. Prompt is used to display message to user. <br/>
 The function returns a string type, therefore we need to typecast it to its equivalent data type:<br/>
 -	```int(input("Enter age"))  #typecast to integer```
 -	```float(input("Enter  amount to spend"))  #typecast to float```
 -	```bool(input("Are you willing to pay every amount?")) ## typecast to boolean ```
 <br/>
-### **python output**
+**python output**
 Its used to display output to the user. ```print("Hello {user}".format(user = name)) ```
 > print(*object, sep=' ', endl = '\n' ,file = sys.stdout, flush = False)
 The print parameters are:
@@ -15,7 +15,7 @@ The print parameters are:
 -				sep: Makes a space by default
 -				end: Skips to the next line
 -				file: Where to display
-####  **Output Formating**
+**Output Formating**
 This is where we format variables to make a human readable output. It is done in several ways
 -		Using <i>string modulo opetator `%` <\i> <br/>
 	```print("%s your grade is %3.2f "%("Titus",85.74)) ```
