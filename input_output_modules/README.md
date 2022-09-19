@@ -1,6 +1,6 @@
 ## Python Input and Output
 ***
- **python input**
+ **python input:** <br/>
 Python has inbuild method thatis used to get input/data from the user <br/> We usw `input([prompt])`. Prompt is used to display message to user. <br/>
 The function returns a string type, therefore we need to typecast it to its equivalent data type:<br/>
 -	```
@@ -12,7 +12,7 @@ The function returns a string type, therefore we need to typecast it to its equi
 -	```
 		bool(input("Are you willing to pay every amount?")) ## typecast to boolean 
 	```
-<br/>
+****
 **python output**
 Its used to display output to the user. ```print("Hello {user}".format(user = name)) ```
 > print(*object, sep=' ', endl = '\n' ,file = sys.stdout, flush = False)
