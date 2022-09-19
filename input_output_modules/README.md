@@ -5,11 +5,7 @@ Python has inbuild method thatis used to get input/data from the user <br/> We u
 The function returns a string type, therefore we need to typecast it to its equivalent data type:
 	```
 		int(input("Enter age"))  #typecast to integer
-	```
-	```
 		float(input("Enter  amount to spend"))  #typecast to float
-	```
-	```
 		bool(input("Are you willing to pay every amount?")) ## typecast to boolean 
 	```
 ****
