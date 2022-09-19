@@ -1,6 +1,6 @@
 ## Python Input and Output
 ***
- **python input:** <br/>
+### 	Python input: <br/>
 Python has inbuild method thatis used to get input/data from the user <br/> We usw `input([prompt])`. Prompt is used to display message to user. <br/>
 The function returns a string type, therefore we need to typecast it to its equivalent data type:<br/>
 -	```
@@ -13,7 +13,7 @@ The function returns a string type, therefore we need to typecast it to its equi
 		bool(input("Are you willing to pay every amount?")) ## typecast to boolean 
 	```
 ****
-**python output**
+### 	python output
 Its used to display output to the user. ```print("Hello {user}".format(user = name)) ```
 > print(*object, sep=' ', endl = '\n' ,file = sys.stdout, flush = False)
 The print parameters are:
@@ -21,11 +21,13 @@ The print parameters are:
 -				sep: Makes a space by default
 -				end: Skips to the next line
 -				file: Where to display
-**Output Formating**
+### 	Output Formating
 This is where we format variables to make a human readable output. It is done in several ways
--		Using <i>string modulo opetator `%` <\i> <br/>
-	```print("%s your grade is %3.2f "%("Titus",85.74)) ```
--		Using  <i> Format method <\i>
+-		Using string modulo opetator `%` <br/>
+	```
+		print("%s your grade is %3.2f "%("Titus",85.74)) 
+	```
+-		Using  Format method <br/>
 We use `str.format to format strings by adding `{}`.
 	```
 		name = "Titus Kiplagat"
@@ -34,7 +36,7 @@ We use `str.format to format strings by adding `{}`.
 		print('{:^20}'.format(name))		# Alligns name to center
 		print('{:>20}'.format(name))	 	# Alligns name to right
 	```
--	Using <u> string method </u>
+-	Using  string method <br/> 
 This is done using slicing and concatenation operations.
 We use `str.center()`, `str.ljust()`, `str.rjust()`
 	```
