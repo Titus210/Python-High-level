@@ -1,6 +1,6 @@
 ## Python Input and Output
 ***
-### 	Python input: <br/>
+### 	Python input: 
 Python has inbuild method thatis used to get input/data from the user <br/> We use `input([prompt])`. Prompt is used to display message to user. <br/>
 The function returns a string type, therefore we need to typecast it to its equivalent data type:
 	```
@@ -16,10 +16,10 @@ Its used to display output to the user.
 		```
 > print(*object, sep=' ', endl = '\n' ,file = sys.stdout, flush = False)
 The print parameters are:
--				object: The output shown to user
--				sep: Makes a space by default
--				end: Skips to the next line
--				file: Where to display
+			object: The output shown to user
+			sep: Makes a space by default
+			end: Skips to the next line
+			file: Where to display
 ### 	Output Formating
 This is where we format variables to make a human readable output. It is done in several ways
 -		Using string modulo opetator `%`
