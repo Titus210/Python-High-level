@@ -14,7 +14,10 @@ The function returns a string type, therefore we need to typecast it to its equi
 	```
 ****
 ### 	python output
-Its used to display output to the user. ```print("Hello {user}".format(user = name)) ```
+Its used to display output to the user.
+		```
+			print("Hello {user}".format(user = name)) 
+		```
 > print(*object, sep=' ', endl = '\n' ,file = sys.stdout, flush = False)
 The print parameters are:
 -				object: The output shown to user
@@ -23,12 +26,12 @@ The print parameters are:
 -				file: Where to display
 ### 	Output Formating
 This is where we format variables to make a human readable output. It is done in several ways
--		Using string modulo opetator `%` <br/>
+-		Using string modulo opetator `%`
 	```
 		print("%s your grade is %3.2f "%("Titus",85.74)) 
 	```
 -		Using  Format method <br/>
-We use `str.format to format strings by adding `{}`.
+We use `str.format` to format strings by adding `{}`.
 	```
 		name = "Titus Kiplagat"
 		print("Hello {} grade is {} ").format("Titus",85.77))
