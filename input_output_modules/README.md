@@ -23,11 +23,11 @@ The print parameters are:
 	file: Where to display
 ### 	Output Formating
 This is where we format variables to make a human readable output. It is done in several ways
--		Using string modulo opetator `%`
+-	Using string modulo opetator `%`
 ```
 	print("%s your grade is %3.2f "%("Titus",85.74)) 
 ```
--		Using  Format method <br/>
+-	Using  Format method <br/>
 We use `str.format` to format strings by adding `{}`.
 ```
 	name = "Titus Kiplagat"
