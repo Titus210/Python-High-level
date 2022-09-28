@@ -1,0 +1,1 @@
+This is just a random text to show how reading can be done in python to write iin a file called readFile

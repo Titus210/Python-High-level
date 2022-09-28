@@ -40,12 +40,12 @@ We open file using `r` in reading mode.
 
 ```
 	with open("read.txt,"w",encoding = "uft-8") as f
-	f.write("First code in file")
-	f.write("second code in file")
-	f.write("last code in file")
-	f.read(4)	# reads first 4 data
-	f.tell()	# tels file position
-	f.seek(1)	# moves cursor to position 1
+		f.write("First code in file")
+		f.write("second code in file")
+		f.write("last code in file")
+			f.read(4)	# reads first 4 data
+		f.tell()	# tels file position
+		f.seek(1)	# moves cursor to position 1
 ```
 We can use for loop to iterate though a file
 ```
