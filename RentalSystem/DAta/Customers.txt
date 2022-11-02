@@ -1,0 +1,7 @@
+07/07/1977,John,Lucky,John.Lucky@email.com
+09/09/1999,Tom,Shark,Tom.Shark@gmail.com
+28/01/2002,Laura,Driver,Laura.Driver@garage.fi
+17/04/1997,Jia,Mei,Jia.Mei@163.com
+17/08/1978,Jack,Mobile,Jack.Mobile@yahoo.com
+16/10/2001,Tom,Johanson,Tom.Johanson@gmail.com
+14/07/2000,Matti,Virtanen,Matti.Virtanen@lut.fi
