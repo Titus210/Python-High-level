@@ -6,6 +6,13 @@
 def available_cars():
     """Opens a file and returns list of available cars in the system"""
     print("\n The following cars are available:")
+    try:
+        with open("../Vehicles.txt", "r", encoding = "utf-8") as f:
+            for data in f:
+                print(data.rstrip())
+    except FileNotFoundError:
+        print("File opened is not found")
+
 
 def rent_car():
     """Shows list of available cars to rent
@@ -44,8 +51,6 @@ def main():
     #Prompt User to enter Choise from menu
     selection = 0
     selection = int(input("\nWhat is your selection: "))
-
-    print(f"\nYour option is {selection}")
 
     # Open Operation functions based on selection
     if selection == 1:
