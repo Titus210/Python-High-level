@@ -21,9 +21,31 @@ def rent_car():
         Registers user if not in the system
         Update rentedVehicles and Customers list
     """
-    name = input("Please enter your name")
-    regNumber = input("Please Enter car registration number")
-    print(f"Hello {name} you rented {regNumber}")
+    # Ask registration number of car to rent
+    regNumber = str(input("\nPlease Enter Registration Number of Car to rent: "))
+
+    # Check if Car is already rented
+    with open("../Vehicles.txt","r",encoding="utf-8") as f:
+        for data in f:
+            rowOne = data.split(",")[0]
+
+            # Check if car is on system
+            if regNumber == rowOne:
+                #   Check If car is already rented
+                with open("../rentedVehicles.txt","r",encoding="utf-8") as f:
+                    for data in f:
+                        rowOne_rented = data.split(",")[0]
+                        if regNumber == rowOne_rented:
+                            print(f'Sorry Car with registration number: {regNumber} is already Rented')
+                            break
+                        # if not rented Is available for hire
+                        else:
+                            print(f'Car with registration number: {regNumber} is ready for hire')
+
+            # If car not in system return false
+            else:
+                print(f"Sorry! Car with registration number: {regNumber} is not found in our system")
+
 
 
 
