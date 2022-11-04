@@ -4,30 +4,29 @@
 #          Car Details    
 #---------------------------------------
 def car_to_rent():
-# Ask registration number of car to rent
-    regNumber = str(input("\nPlease Enter Registration Number of Car to rent: "))
+    # Ask registration number of car to rent
+    regNumber = str(input("Please enter Registration Number of Car"))
+    print(regNumber)
 
-# Check if Car is already rented
+    # Check if Car is already rented
+    regNumbers = []
     with open("../Vehicles.txt", "r", encoding="utf-8") as f:
         for data in f:
-            rowOne = data.split(",")[0]
-
-           # Check if car is on system
-            if regNumber == rowOne:
-                # Check If car is already rented
-                with open("../rentedVehicles.txt", "r", encoding="utf-8") as f:
-                    for data in f:
-                        rowOne_rented = data.split(",")[0]
-                        if regNumber == rowOne_rented:
-                            print(f'Sorry Car with registration number: {regNumber} is already Rented')
-                            break
-                    # if not rented Is available for hire
-                        else:
-                            print(f'Car with registration number: {regNumber} is ready for hire')
-
-                    # If car not in system return false
-            else:
-                print("Sorry! Car with registration number: {regNumber} is not found in our system")
+            regRow = str(data.split(",")[0])
+            regNumbers += [regRow]
+    if regNumber in regNumbers:
+        regVehicle = []
+        with open("../rentedVehicles.txt", "r", encoding="utf-8") as f:
+            for cars in f:
+                regRow = str(cars.split(",")[0])
+                regVehicle += [regRow]
+        print(regVehicle)
+        if regNumber in regVehicle:
+            print("Car is Rented")
+        else:
+            print("Car Availabile")
+    else:
+        print("Car in the system")
 
 
 
