@@ -3,13 +3,10 @@
 #---------------------------------------
 #          Car Details    
 #---------------------------------------
-from datetime import datetime
-import re
-import math
+
 def car_to_rent():
     # Ask registration number of car to rent
-    regNumber = str(input("Please enter Registration Number of Car"))
-    print(regNumber)
+    regNumber = str(input("Please enter Registration Number of Car: "))
 
     # Check if Car is already rented
     regNumbers = []
@@ -40,6 +37,8 @@ def car_to_rent():
 import math
 import re
 import time
+from datetime import datetime
+
 def validate_Birthday():
     Result = None
     while True:
@@ -59,23 +58,24 @@ def validate_Birthday():
     if result == True:
         regex = re.search(
             r'^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[13-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$', bDay)
-        if regex:
-            striped_time = datetime.strptime(bDay, '%m/%d/%Y')
-            age = ((datetime.today() - striped_time).days / 365)
+        try:
+            if regex:
+                striped_time = datetime.strptime(bDay, '%d/%m/%Y')
+                age = ((datetime.today() - striped_time).days / 365)
 
         # Check if age is <= 100  and age is >= 18
-            if age >= 18 and age <= 100:
-                print("Eligible")
+                if age >= 18 and age <= 100:
+                    userAvailability(bDay)
 
-            else:
-                print("Not Eligible!")
+                else:
+                    print("Not Eligible!")
+                    validate_Birthday()
+        except ValueError:
+                print("Enter A valid date format")
                 validate_Birthday()
-        else:
-            print("Enter A vald date format")
-            validate_Birthday()
 
 
-car_to_rent()
+
 
 
 
@@ -85,6 +85,57 @@ car_to_rent()
 """      Customers Availability  """
 
 # Add Birthday, first name, last name , email address:right format to Customer.txt file
+
+
+def userAvailability(bDay):
+
+    userBirthDays = []
+    
+    # open file to check if customer exist
+    with open("../Customers.txt", "r", encoding="utf-8") as f:
+        for users in f:
+            bDays = str(users.split(",")[0])
+            userBirthDays += [bDays]
+
+    if bDay in userBirthDays:
+        print(f'{bDay} is in system')
+    else:
+        add_User(bDay)
+
+
+def add_User(bDay):
+    fName = input("Enter your first name: ")
+    sName = input("Enter your second name: ")
+    # Check if email is given in right format
+    while True:
+        email = input("Enter your email address: ")
+        email_regex = '^[a-zA-Z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$'
+        regex = re.search(email_regex, email)
+        if regex:
+            break
+        else:
+            print("Please Enter a valid email address")
+            continue
+    userDetails = []
+    userDetails.append(bDay)
+    userDetails.append(fName)
+    userDetails.append(sName)
+    userDetails.append(email)
+    newList = (",".join(map(str, userDetails)))
+    print(userDetails)
+    # list to a string
+    userData = ",".join(userDetails)
+    print(userData)
+    with open("../customers.txt", "a+", encoding="utf-8") as f:
+        # move cursor to beginning
+        f.seek(0)
+        # append next line if not empty
+        data = f.readline(100)
+        if len(data) > 0:
+            f.write(userData)
+
+
+car_to_rent()
 
 """ Renting Car     """
 
