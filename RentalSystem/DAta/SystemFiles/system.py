@@ -15,36 +15,16 @@ def available_cars():
 
 
 def rent_car():
+    from rentCar import validate_Birthday
     """Shows list of available cars to rent
 
         Asks reg no of car to rent
         Registers user if not in the system
         Update rentedVehicles and Customers list
     """
-    # Ask registration number of car to rent
-    regNumber = str(input("\nPlease Enter Registration Number of Car to rent: "))
-
-    # Check if Car is already rented
-    with open("../Vehicles.txt","r",encoding="utf-8") as f:
-        for data in f:
-            rowOne = data.split(",")[0]
-
-            # Check if car is on system
-            if regNumber == rowOne:
-                #   Check If car is already rented
-                with open("../rentedVehicles.txt","r",encoding="utf-8") as f:
-                    for data in f:
-                        rowOne_rented = data.split(",")[0]
-                        if regNumber == rowOne_rented:
-                            print(f'Sorry Car with registration number: {regNumber} is already Rented')
-                            break
-                        # if not rented Is available for hire
-                        else:
-                            print(f'Car with registration number: {regNumber} is ready for hire')
-
-            # If car not in system return false
-            else:
-                print(f"Sorry! Car with registration number: {regNumber} is not found in our system")
+    # VAlidate Birthday
+    
+    validate_Birthday()
 
 
 
