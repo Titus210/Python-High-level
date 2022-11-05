@@ -15,7 +15,7 @@ def available_cars():
 
 
 def rent_car():
-    from rentCar import validate_Birthday
+    from rentCar import validate_Birthdayx
     """Shows list of available cars to rent
 
         Asks reg no of car to rent

@@ -81,31 +81,41 @@ def validate_Birthday(regNumber):
 
 
 
-
-"""      Customers Availability  """
-
-# open file to check if customer exist
-
+#--------------------------------
+#      Customers Availability
+#-------------------------------
 def userAvailability(bDay,regNumber):
+    """Check if a customer is is system
+    Parameters:
+            bDay: Customers birthdate
+            regNumber: Car to rent registration number
+    Returns:
+        if user esists:
+                    calls rent car function
+        if user is not available:
+                    calls add_User function to add user information"""
 
     userBirthDays = []
     
-
     with open("../Customers.txt", "r", encoding="utf-8") as f:
         for users in f:
             bDays = str(users.split(",")[0])
             userBirthDays += [bDays]
+            line = users.split(',')
+            if line[0] == bDay:
+                first_name = line[1]
 
     if bDay in userBirthDays:
-        rentingCar(bDay, regNumber)  # Call rent Car function
+        rentingCar(bDay, regNumber, first_name)  # Call rent Car function
     else:
         add_User(bDay, regNumber)      # Call add user function
 
-#---------------------------------
+#------------------------------------
 #          Add customer to System
-#---------------------------------
+#-------------------------------------
 
 def add_User(bDay,regNumber):
+    """Add user to System """
     fName = input("Enter your first name: ")
     sName = input("Enter your second name: ")
     # Check if email is given in right format
@@ -132,16 +142,22 @@ def add_User(bDay,regNumber):
         data = f.readline(100)
         if len(data) > 0:
             f.write(userData)
+        
+        # get users first name
+        for line in f:
+            line = data.split(',')
+            if line[0] == bDay:
+                first_name = line[1]
             
-    rentingCar(bDay,regNumber)  # Call rent Car function
+    rentingCar(bDay,regNumber, first_name)  # Call rent Car function
 
 
-# ---------------------------------
-#          Adding Rentin Car Details
-# ---------------------------------
+# -------------------------------------
+#          Adding Renting Car Details
+# -------------------------------------
 
 
-def rentingCar(bDay,regNumber):
+def rentingCar(bDay,regNumber,first_name):
     rentingDetails = []
     now = datetime.now()
     rentTime = now.strftime("%d/%m/%Y %H:%M")
@@ -149,19 +165,17 @@ def rentingCar(bDay,regNumber):
     rentingDetails.append(bDay)
     rentingDetails.append(rentTime)
     rentedData = ",".join(rentingDetails)
-    print(rentedData)
+
     with open("../rentedVehicles.txt", "a+", encoding="utf-8") as f:
         f.seek(0)
         # append next line if not empty
         data = f.readline(100)
         if len(data) > 0:
             f.write(rentedData)
-
+    
+    # Display First name and Rented Car reg Number
+    print(f'Hello {first_name}\nYou rented the car {regNumber}')
 
     
-
-"""     Display Confirmation    """
-
-# Display First name and Rented Car reg Number
 
 car_to_rent()
