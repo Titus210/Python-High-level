@@ -197,7 +197,3 @@ def rentingCar(bDay,regNumber,first_name):
     
     # Display First name and Rented Car reg Number
     print(f'Hello {first_name}\nYou rented the car {regNumber}')
-
-    
-
-car_to_rent()

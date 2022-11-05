@@ -1,46 +1,20 @@
 #!/usr/bin/python3
 """ Car Rental System """
-
+import sys
+import returnCar
+import rentCar
+import countMoney
 
 
 def available_cars():
     """Opens a file and returns list of available cars in the system"""
     print("\n The following cars are available:")
     try:
-        with open("../Vehicles.txt", "r", encoding = "utf-8") as f:
+        with open("../Vehicles.txt", "r", encoding="utf-8") as f:
             for data in f:
                 print(data.rstrip())
     except FileNotFoundError:
         print("File opened is not found")
-
-
-def rent_car():
-    from rentCar import validate_Birthdayx
-    """Shows list of available cars to rent
-
-        Asks reg no of car to rent
-        Registers user if not in the system
-        Update rentedVehicles and Customers list
-    """
-    # VAlidate Birthday
-    
-    validate_Birthday()
-
-
-
-
-def return_car():
-    """Returns Car by registration number
-        Computes amount depending on rented
-        Removes car feom rented cars 
-        Adds line in transaction file
-    """
-    print("Hello Titus you have returned car BKV-943")
-
-def count_money():
-    """Counts money in the system"""
-    sum = 1 + 1
-    print("{}".format(sum))
 
 def main():
     """Menu to show  the sysyem operations"""
@@ -58,12 +32,12 @@ def main():
     if selection == 1:
         available_cars()
     elif selection == 2:
-        rent_car()
+        rentCar.car_to_rent()
     elif selection == 3:
-        return_car()
+        returnCar.returnCar()
     elif selection == 4:
-        count_money()
+        print("counting")
     else:
-        exit()
+        sys.exit("Exiting.....")
 
 main()
