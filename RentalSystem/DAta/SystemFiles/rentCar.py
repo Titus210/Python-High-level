@@ -84,14 +84,13 @@ def validate_Birthday():
 
 """      Customers Availability  """
 
-# Add Birthday, first name, last name , email address:right format to Customer.txt file
-
+# open file to check if customer exist
 
 def userAvailability(bDay):
 
     userBirthDays = []
     
-    # open file to check if customer exist
+
     with open("../Customers.txt", "r", encoding="utf-8") as f:
         for users in f:
             bDays = str(users.split(",")[0])
@@ -102,6 +101,9 @@ def userAvailability(bDay):
     else:
         add_User(bDay)
 
+#---------------------------------
+#          Add customer to System
+#---------------------------------
 
 def add_User(bDay):
     fName = input("Enter your first name: ")
