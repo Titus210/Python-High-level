@@ -36,7 +36,7 @@ def main():
     elif selection == 3:
         returnCar.returnCar()
     elif selection == 4:
-        print("counting")
+        countMoney.count_money()
     else:
         sys.exit("Exiting.....")
 
