@@ -23,7 +23,7 @@ def car_to_rent():
         if regNumber in regVehicle:
             print("Car is Rented")
         else:
-            validate_Birthday()
+            validate_Birthday(regNumber)
     else:
         print("Car not in the system")
 
@@ -39,7 +39,7 @@ import re
 import time
 from datetime import datetime
 
-def validate_Birthday():
+def validate_Birthday(regNumber):
     Result = None
     while True:
         # Ask Customer Birthday
@@ -65,7 +65,7 @@ def validate_Birthday():
 
         # Check if age is <= 100  and age is >= 18
                 if age >= 18 and age <= 100:
-                    userAvailability(bDay)
+                    userAvailability(bDay,regNumber)
 
                 else:
                     print("Not Eligible!")
@@ -86,7 +86,7 @@ def validate_Birthday():
 
 # open file to check if customer exist
 
-def userAvailability(bDay):
+def userAvailability(bDay,regNumber):
 
     userBirthDays = []
     
@@ -97,15 +97,15 @@ def userAvailability(bDay):
             userBirthDays += [bDays]
 
     if bDay in userBirthDays:
-        print(f'{bDay} is in system')
+        rentingCar(bDay, regNumber)  # Call rent Car function
     else:
-        add_User(bDay)
+        add_User(bDay, regNumber)      # Call add user function
 
 #---------------------------------
 #          Add customer to System
 #---------------------------------
 
-def add_User(bDay):
+def add_User(bDay,regNumber):
     fName = input("Enter your first name: ")
     sName = input("Enter your second name: ")
     # Check if email is given in right format
@@ -123,26 +123,45 @@ def add_User(bDay):
     userDetails.append(fName)
     userDetails.append(sName)
     userDetails.append(email)
-    newList = (",".join(map(str, userDetails)))
-    print(userDetails)
-    # list to a string
     userData = ",".join(userDetails)
-    print(userData)
+
+    
     with open("../customers.txt", "a+", encoding="utf-8") as f:
-        # move cursor to beginning
         f.seek(0)
         # append next line if not empty
         data = f.readline(100)
         if len(data) > 0:
             f.write(userData)
+            
+    rentingCar(bDay,regNumber)  # Call rent Car function
 
 
-car_to_rent()
+# ---------------------------------
+#          Adding Rentin Car Details
+# ---------------------------------
 
-""" Renting Car     """
 
-# Add Car Reg No, Birthday, timestamp(started) to rentedVehicles.txt
+def rentingCar(bDay,regNumber):
+    rentingDetails = []
+    now = datetime.now()
+    rentTime = now.strftime("%d/%m/%Y %H:%M")
+    rentingDetails.append(regNumber)
+    rentingDetails.append(bDay)
+    rentingDetails.append(rentTime)
+    rentedData = ",".join(rentingDetails)
+    print(rentedData)
+    with open("../rentedVehicles.txt", "a+", encoding="utf-8") as f:
+        f.seek(0)
+        # append next line if not empty
+        data = f.readline(100)
+        if len(data) > 0:
+            f.write(rentedData)
+
+
+    
 
 """     Display Confirmation    """
 
 # Display First name and Rented Car reg Number
+
+car_to_rent()
