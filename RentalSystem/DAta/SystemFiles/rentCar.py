@@ -40,7 +40,15 @@ import time
 from datetime import datetime
 
 def validate_Birthday(regNumber):
-    Result = None
+    """Validates users birthday if its in correct format
+        Input: users birthday
+        - Checksinput is given in format (DD/MM/YYY)
+        - Check if date is in a valid form 
+        - Check if user is not less than 18 years and not greater than 100 years
+        - if all conditions are true calls userAvailability function
+    """
+    
+    result = False
     while True:
         # Ask Customer Birthday
         bDay = input("Please Enter you BirthDay in format: dd/mm/yyyy: ")
@@ -69,10 +77,10 @@ def validate_Birthday(regNumber):
 
                 else:
                     print("Not Eligible!")
-                    validate_Birthday()
+                    validate_Birthday(regNumber)
         except ValueError:
                 print("Enter A valid date format")
-                validate_Birthday()
+                validate_Birthday(regNumber)
 
 
 
@@ -91,7 +99,7 @@ def userAvailability(bDay,regNumber):
             regNumber: Car to rent registration number
     Returns:
         if user esists:
-                    calls rent car function
+                    calls rent_car function
         if user is not available:
                     calls add_User function to add user information"""
 
@@ -114,10 +122,18 @@ def userAvailability(bDay,regNumber):
 #          Add customer to System
 #-------------------------------------
 
+# def add_User(bDay,regNumber):
 def add_User(bDay,regNumber):
-    """Add user to System """
+    """Add user to System 
+    Parameters:
+            bDay: Customers birthdate
+            regNumber: Car to rent registration number
+    Accepts users first and last name and checks if email is in right format
+    """
+    
     fName = input("Enter your first name: ")
     sName = input("Enter your second name: ")
+    
     # Check if email is given in right format
     while True:
         email = input("Enter your email address: ")
@@ -128,6 +144,8 @@ def add_User(bDay,regNumber):
         else:
             print("Please Enter a valid email address")
             continue
+        
+    # append user details to a list
     userDetails = []
     userDetails.append(bDay)
     userDetails.append(fName)
@@ -135,7 +153,7 @@ def add_User(bDay,regNumber):
     userDetails.append(email)
     userData = ",".join(userDetails)
 
-    
+    # open file to add user to customer.txt file
     with open("../customers.txt", "a+", encoding="utf-8") as f:
         f.seek(0)
         # append next line if not empty
@@ -143,14 +161,9 @@ def add_User(bDay,regNumber):
         if len(data) > 0:
             f.write(userData)
         
-        # get users first name
-        for line in f:
-            line = data.split(',')
-            if line[0] == bDay:
-                first_name = line[1]
-            
-    rentingCar(bDay,regNumber, first_name)  # Call rent Car function
 
+ # Call rent Car function
+    rentingCar(bDay,regNumber, fName)  
 
 # -------------------------------------
 #          Adding Renting Car Details
@@ -158,6 +171,14 @@ def add_User(bDay,regNumber):
 
 
 def rentingCar(bDay,regNumber,first_name):
+    """Rents car to the user
+    Parameters:
+            bDay: Users to rent car birthday
+            regNumber: car to rent registration number
+            first_name: USers first name  
+    """
+    
+    # append renting detaols to a list
     rentingDetails = []
     now = datetime.now()
     rentTime = now.strftime("%d/%m/%Y %H:%M")
@@ -166,6 +187,7 @@ def rentingCar(bDay,regNumber,first_name):
     rentingDetails.append(rentTime)
     rentedData = ",".join(rentingDetails)
 
+    # Adds list of renting details to  rentedVehicles.txt
     with open("../rentedVehicles.txt", "a+", encoding="utf-8") as f:
         f.seek(0)
         # append next line if not empty
