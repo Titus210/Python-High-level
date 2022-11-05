@@ -1,27 +1,5 @@
-#!/usr/bin/python3
-""" Returning car function """
-
-# Ask reg Number of car to return
-
-# Find Car in rented Vehicle first row
-
-# Inform User If car exist or not rented
-
-"""  Car price and account  """
-
-# Find daily price of car in Vehicles.txt
-
-""" Compute days """
-# Get time of Car return
-
-#  Compute number of days rented
-# " number of days * price per day "
-
-""" Delete Returned Car from Rented Vehicles.txt"""
-
-"""Add new Line to transactions.txt"""
-
 from datetime import datetime
+
 def returnCar():
     # Ask registration number of car to rent
         regNumber = str(input("Please enter Registration Number of Car: "))
@@ -36,6 +14,7 @@ def returnCar():
                         line = data.split(',')
                         if line[0] == regNumber:        # get start date from file
                             startDate = line[2].strip()
+                            bDay = line[1]
 
             
             # Get car price  and current time 
@@ -48,7 +27,7 @@ def returnCar():
             
             
                  
-                # convert current time to date timr format       
+                # convert current time to date time format       
             timenow = datetime.now()
             returnTime = timenow.strftime("%d/%m/%Y %H:%M")
 
@@ -61,23 +40,38 @@ def returnCar():
             daysRented = (dateReturned - dateStarted).days
     
             # Compute price of days rented
-            price = daysRented * carPrice
-            print(price)
-            
-        # append data to transactions file
+            price = format(daysRented * carPrice, ".2f")
+         
+
             returnData = []
             returnData.append(regNumber)
-            returnData.append(str(bDay))
+            returnData.append(bDay)
             returnData.append(startDate)
             returnData.append(returnTime)
+            returnData.append(str(price))
             
             # convert  list to a string
             transactionData = ",".join(returnData)
-            print(transactionData)
 
+        # append data to transactions file
+            with open("../transActions.txt","a+",encoding="utf-8") as f:
+                f.seek(0,2)
+                # append next line if not empty
+                f.write(transactionData)
+                f.write("\n")
+                        
+        # remove line from rentedVehicles.txt
+                with open("../rentedVehicles.txt", "r+", encoding="utf-8") as f:
+                        file = f.readlines() 
+                        f.seek(0)
+                        for line in file:
+                                if not line.startswith(regNumber):
+                                        f.write(line)
+                        f.truncate()
 
+                
         else:
                 print("Car is not rented")
         
 
-
+returnCar()

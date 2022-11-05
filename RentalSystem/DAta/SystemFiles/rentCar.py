@@ -155,11 +155,10 @@ def add_User(bDay,regNumber):
 
     # open file to add user to customer.txt file
     with open("../customers.txt", "a+", encoding="utf-8") as f:
-        f.seek(0)
+        f.seek(0,2)
         # append next line if not empty
-        data = f.readline(100)
-        if len(data) > 0:
-            f.write(userData)
+        f.write(userData)
+        f.write("\n")
         
 
  # Call rent Car function
@@ -189,11 +188,11 @@ def rentingCar(bDay,regNumber,first_name):
 
     # Adds list of renting details to  rentedVehicles.txt
     with open("../rentedVehicles.txt", "a+", encoding="utf-8") as f:
-        f.seek(0)
+        f.seek(0, 2)
         # append next line if not empty
-        data = f.readline(100)
-        if len(data) > 0:
-            f.write(rentedData)
+        f.write(rentedData)
+        f.write("\n")
+    
     
     # Display First name and Rented Car reg Number
     print(f'Hello {first_name}\nYou rented the car {regNumber}')
