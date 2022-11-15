@@ -3,7 +3,7 @@ from  math import sqrt
 def triangle_formulae(a,b,c):
     """
     Returns area of a triangle using heroes formulae.
-    Parameters:
+    Args:
             a: One side of the triangle
             b: One side of the triangle
             c: One side of the triangle
