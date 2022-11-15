@@ -27,7 +27,7 @@ def triangle_formulae(a,b,c):
     product = s * (difference_of_a * difference_of_b * difference_of_c)
     square_root = sqrt(product)
     
-    print(f"Area of the triangle is {square_root}")
+    print(f"Area of the triangle is {square_root:.2f}")
 
     
 def main():
