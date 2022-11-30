@@ -19,12 +19,26 @@ The table below shows trials per each range
 -       Loops
 -       random module
 
-
 ## Modules used.
-1. python-tabulate
-This is a python library to create table to learn more read on [python-tabulate](https://pypi.org/project/tabulate/)
+1. __python-tabulate:__ <br/>
+This is a python library to create table to learn more read on [python-tabulate](https://pypi.org/project/tabulate/) <br/>
    `pip install tabulate`
 
-##  Algorithm
+2. __random:__ <br>
+3. This is a python library to randomize and create random number feom a given range
+   
+## Functions
+1. __game_range():__ <br/>
+This is the main function that runs the game. It displays table of choices on the range and choices. <br/>
+Creates an executable control statement that initializes the range and trials per range. <br/>
+The function calls __main_game__ function.
+2. __main_game()__ <br/>
+The playe enters the number to guess and code is run within the range chosen. <br/>
+Its also receives arguments from game_range function. <br/>
+Using while loop the code is evaluated in steps until the function returns break upon failed execution. <br/>
 
+# Conclusion
+This was just a fun game where i was trying to change the way we do guess number game. 
+This is an open source project open for code modification, typos rectifications. <br/>
 
+This project was originally developed by [Titus Kiplagat](https://www.linkedin.com/in/titus-kiplagat-5146ba210/)
