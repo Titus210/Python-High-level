@@ -13,3 +13,18 @@ The table below shows trials per each range
  | 1 - 50 | 4             |
  | 1-80   | 5             |
  | 1- 100 | 6             |
+ ###  Code Implementation
+ The code is implemented with:
+-       Control structures
+-       Loops
+-       random module
+
+
+## Modules used.
+1. python-tabulate
+This is a python library to create table to learn more read on [python-tabulate](https://pypi.org/project/tabulate/)
+   `pip install tabulate`
+
+##  Algorithm
+
+
