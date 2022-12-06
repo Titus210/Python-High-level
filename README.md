@@ -85,6 +85,21 @@ We use line character to for multi lines
 		     '''
 ```
 ***
+
+## Debbuging
+A __bug__ is an error in a code that 
+This is a process of identifying  a problem isolating and solving or findia a way through it.
+#### Types of errors
+1. __syntax error__: <br/>
+This is an error that occurs as a result of violating structure of a program i.e: <br/>
+`print hello world`
+2. __logical error__: <br/>
+Also called __semantic error__ <br/>
+This ia an error that occurs as a result of a mistake from logical operations of a programmer.
+An error in a program that makes it do something other than what the programmer intended.
+1. __Runtime error__: <br/>
+This is an error that occurs after running as a program also called __exceptions__ as they are as a result of something bad has appened
+
 ### Conclusion
 Other topics are covered within the documented part of each folder with practices and projects descriptions.<br/>
 This document was wtitten and documented by [Titus Kiplagat](https://ke.linkedin.com/in/titus-kiplagat-5146ba210)
