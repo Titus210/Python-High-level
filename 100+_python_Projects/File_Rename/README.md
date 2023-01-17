@@ -87,7 +87,16 @@ The above code returns a tuple with two parts
         except Exception as e:
             print(f"An error occurred while renaming {file}:", e)
 ```
+The Full code example is found below <br/>
 [Full Code Implementation](https://github.com/Titus210/Python-High-level/blob/master/100%2B_python_Projects/File_Rename/fileRename.py)
+
+# Time Complexity
+The time complexity of the above code depends on the number of files in the directory and the amount of processing done on each file. <br/>
+The outermost loop that iterates through all files in the directory using the `os.listdir()` function has a time complexity of` O(n)`, where `n` is the number of files in the directory. <br/>
+The `os.path.splitext(file)` function and the `pdf_name.split('-')` function both have a time complexity of` O(m)`, where` m` is the length of the file name. <br/>
+The `unit_name.strip(`), `unit_title.strip()`, `pdf_num.strip()[1:].zfill(2)` all have a time complexity of `O(n)`, where` n` is the length of the string.
+Finally, the `os.rename(file, new_name)` function has a time complexity of `O(1)` <br/>
+Overall, the time complexity of the above code is `O(n*m)`, where n is the number of files in the directory and `m` is the average length of file names.
 ## File  After 
 ![File Format After Renaming](https://github.com/Titus210/Python-High-level/blob/master/100%2B_python_Projects/File_Rename/New%20File.JPG)
 ## Conclusion
