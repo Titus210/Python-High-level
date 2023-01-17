@@ -5,7 +5,7 @@ After being given my Semester Units I realized they were renamed in a bad format
 way of organization in the computer<br/>
 I decided to change the name format and name precedence to ease access and control over the pdf files.
 ### File Format Before 
-![File Format Before Renaming]("./Original.JPG")
+![File Format Before Renaming](https://github.com/Titus210/Python-High-level/blob/master/100%2B_python_Projects/File_Rename/Original.JPG")
 ## Approach Towards Renaming the documents
 The script uses the os and `os.path` modules to navigate the file system 
 and perform the renaming operations. <br/>
@@ -88,7 +88,7 @@ The above code returns a tuple with two parts
             print(f"An error occurred while renaming {file}:", e)
 ```
 ## File  After 
-![File Format After Renaming]("./New File.JPG")
+![File Format After Renaming](https://github.com/Titus210/Python-High-level/blob/master/100%2B_python_Projects/File_Rename/New%20File.JPG)
 ## Conclusion
 This script can be very useful for organizing and maintaining large numbers of files <br/>
 This code was written and documented  by [Titus Kiplagat](https://www.linkedin.com/in/titus-kiplagat-5146ba210/)
