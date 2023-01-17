@@ -4,6 +4,8 @@ This python script is designed to rename files in a specific directory.<br/>
 After being given my Semester Units I realized they were renamed in a bad format, which was not easy to follow along due to its 
 way of organization in the computer<br/>
 I decided to change the name format and name precedence to ease access and control over the pdf files.
+### File Format Before 
+![File Format Before Renaming]("./Original.JPG")
 ## Approach Towards Renaming the documents
 The script uses the os and `os.path` modules to navigate the file system 
 and perform the renaming operations. <br/>
@@ -85,7 +87,8 @@ The above code returns a tuple with two parts
         except Exception as e:
             print(f"An error occurred while renaming {file}:", e)
 ```
-
+## File  After 
+![File Format After Renaming]("./New File.JPG")
 ## Conclusion
 This script can be very useful for organizing and maintaining large numbers of files <br/>
 This code was written and documented  by [Titus Kiplagat](https://www.linkedin.com/in/titus-kiplagat-5146ba210/)
