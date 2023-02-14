@@ -18,12 +18,13 @@ def pigLatin():
 
     if begin_with_vowel == False:
         # add way to end of word
-        # get first word
+        # get first word and remove it
         first_word = word[0]
-        first_word_end = first_word + "ay"
+        sliced_word = word.lstrip(first_word)
+        word_ending = first_word + "ay" # add first word to ay
 
-        new_word = word + first_word_end
-        print(f"{word} ends with and added way is {new_word}")
+        new_word = sliced_word + word_ending    # create new word by adding first word with the ending created
+        print(f"{word} ends with and added way is {new_word}")  
     else:
         last_word = word + "way"
 
