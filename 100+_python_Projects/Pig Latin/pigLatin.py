@@ -24,11 +24,11 @@ def pigLatin():
         word_ending = first_word + "ay" # add first word to ay
 
         new_word = sliced_word + word_ending    # create new word by adding first word with the ending created
-        print(f"{word} ends with and added way is {new_word}")  
+        print(f"{word} begins with consonant and when added ay is {new_word}")  
     else:
         last_word = word + "way"
 
-        print(f"{word} ends with and added way is {last_word}")
+        print(f"{word} begins  with vowel and when added way is {last_word}")
 
 
 pigLatin()
