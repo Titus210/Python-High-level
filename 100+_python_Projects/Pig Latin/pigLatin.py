@@ -3,17 +3,18 @@
 
 
 def pigLatin():
-    """
-    """
+    """Pig latin to convert english words to pig latin"""
+
 
     begin_with_vowel = False
 
+     # declarations
     word = str(input("Enter a word: "))
     vowels = ["a", "e", "i", "o", "u"]
 
     # check if word begins with vowel
-    for vowel in vowels:
-        if word[0] == vowel:
+
+    if word[0] in vowels:
             begin_with_vowel = True
 
     if begin_with_vowel == False:
