@@ -1,11 +1,18 @@
-# If word begins with a vowel we add way to the end
-# if other letter we take first letter, put it on the end and add ay
+import time
+
+""" If word begins with a vowel we add way to the end
+if other letter we take first letter, put it on the end and add ay"""
+
+
 
 
 def pigLatin():
     """Pig latin to convert english words to pig latin"""
 
 
+    # get starting time to run the code
+    start_time = time.perf_counter()
+    
     begin_with_vowel = False
 
      # declarations
@@ -18,7 +25,7 @@ def pigLatin():
             begin_with_vowel = True
 
     if begin_with_vowel == False:
-        # add way to end of word
+
         # get first word and remove it
         first_word = word[0]
         sliced_word = word.lstrip(first_word)
@@ -30,6 +37,11 @@ def pigLatin():
         last_word = word + "way"
 
         print(f"{word} begins  with vowel and when added way is {last_word}")
+
+
+    end_time = time.perf_counter()
+    time_taken = end_time - start_time
+    print(f"The total time taken is {time_taken:.2f} seconds")
 
 
 pigLatin()
