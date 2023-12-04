@@ -2,7 +2,16 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
+
 class Todo(models.Model):
+    """Creating a model to hold to do list items
+
+    Args:
+        models (): inherits from Model class
+
+    Returns:
+        _type_: _description_
+    """
     title = models.CharField('Title', max_length=20)
     memo = models.TextField(blank=True)
     
