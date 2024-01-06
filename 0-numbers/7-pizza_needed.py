@@ -9,7 +9,7 @@
 			number of pizza needed
 """
 people = int(input("Enter number of people: "))
-slices_person = int(input("How many alices will each person eat: "))
+slices_person = int(input("How many slices will each person eat: ")) # typo error
 slices = int(input("Enter slices in each pie: "))
 def slices_needed(people,slices,pie):
 	pizza = people * slices
